@@ -22,4 +22,5 @@ function move(){
     circle.update() 
 }
 
+
 setInterval(move, 1000/60)
