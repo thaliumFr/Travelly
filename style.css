@@ -4,6 +4,7 @@
   --White: #E6F0F2;
   --text: #020303;
   --Primary: #34ADE5;
+  --Primary-dark: hsl(199, 77%, 30%);
   --Accent: #B85628;
   --spacing: 1em;
   --radius: 10px;
@@ -13,62 +14,26 @@ body {
   box-sizing: border-box;
   margin: 0;
   scroll-behavior: smooth;
+  font-size: 14pt;
+  color: var(--text);
+  overflow-anchor: none;
 }
 
 * {
   font-family: sans-serif;
 }
 
-nav {
-  position: fixed;
-  width: 100%;
-  top: -1px;
-  z-index: 999;
-  isolation: isolate;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: linear-gradient(to bottom, var(--Primary), rgba(0, 0, 0, 0));
-  transition: all 0.25s ease-in-out;
-}
-nav.is-pinned {
-  background: linear-gradient(to bottom, var(--Primary), var(--Primary));
-}
-nav.is-pinned ul {
-  margin-block: calc(var(--spacing) * 1.5);
-}
-nav.is-pinned a {
-  font-size: 1rem;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing);
-  margin-block: calc(var(--spacing) * 4);
-  transition: all 0.25s ease-in-out;
-  padding: 0;
-}
-nav li {
-  display: block;
-}
-nav a {
-  display: block;
-  text-decoration: none;
-  color: var(--White);
-  align-self: center;
-  margin-inline: calc(var(--spacing) * 2);
-  font-size: 1.25rem;
-  transition: all 0.25s;
-}
-nav a.title {
-  font-size: 1.5rem;
-}
-
 .cta {
   padding: calc(var(--spacing) * 0.75) var(--spacing);
   background: var(--Accent, #B85628);
   border-radius: var(--radius);
+}
+.cta:hover, .cta li:hover {
+  background: linear-gradient(to top right, var(--Primary), var(--Accent));
+  border-radius: var(--radius);
+}
+.cta:active, .cta li:active {
+  filter: brightness(1.2);
 }
 
 .title {
@@ -83,8 +48,11 @@ header {
   background-position: center;
   position: relative;
 }
-
-h1 {
+header h1 {
+  width: 75%;
+  margin: 0 auto;
+}
+header div {
   position: absolute;
   width: 100%;
   text-align: center;
@@ -93,17 +61,184 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
 }
+header div .searchbar {
+  margin-top: 10ch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing);
+}
+header div .searchbar input, header div .searchbar button {
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  border: none;
+  font-size: 12pt;
+}
+header div .searchbar input[type=button], header div .searchbar button[type=button] {
+  background-color: var(--Accent);
+  color: var(--White);
+}
+header div .searchbar input[type=submit], header div .searchbar button[type=submit] {
+  background-color: var(--Primary);
+  color: var(--White);
+}
+header div .search {
+  margin: 15px 0;
+  font-family: "Lemon";
+  padding: 15px 120px;
+  background: linear-gradient(to bottom left, var(--Primary), var(--Accent));
+  border-style: solid;
+  border-radius: 50px;
+  border-width: 1px;
+}
+header .scroll {
+  position: absolute;
+  left: 50%;
+  bottom: -100%;
+  width: 2em;
+  height: 4em;
+  border: solid 5px var(--White);
+  border-radius: 2em;
+}
+header .scroll::after {
+  display: block;
+  content: "";
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 0.5em auto;
+  background-color: var(--White);
+  animation: scroll forwards infinite 1.75s ease-out;
+}
+
+h2 {
+  color: var(--Accent);
+  text-transform: uppercase;
+}
 
 .container {
+  min-height: 100vh;
+  padding-top: 3ch;
+  margin: 0 auto;
   position: relative;
   background-color: var(--Secondary);
-  min-height: 100vh;
 }
 .container::after {
   position: absolute;
   content: "";
   background-image: url("images/clouds.svg");
+  color: var(--White);
   width: 100%;
   height: 10rem;
   bottom: 98%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+section {
+  padding-inline: 10%;
+  margin-top: 10em;
+  scroll-snap-align: start;
+}
+section.news li {
+  border: solid 5px var(--Primary);
+}
+section .list ul {
+  display: block;
+  background-color: var(--White);
+  padding: var(--spacing) calc(var(--spacing) * 3);
+  border-radius: var(--radius);
+  margin-block: calc(var(--spacing) * 3);
+}
+section .list li {
+  margin-block: var(--spacing);
+}
+section > ul {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--spacing) * 3);
+  list-style: none;
+  padding: var(--spacing);
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+section > ul::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+section > ul li {
+  aspect-ratio: 9/5;
+  overflow: hidden;
+  min-width: 350px;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-stop: always;
+  scroll-snap-type: proximity;
+  border-radius: var(--radius);
+  transition: all ease-out 0.25s;
+}
+section > ul li:hover {
+  transform: scale(1.1);
+}
+section > ul li:hover p {
+  bottom: 0;
+}
+section > ul li p {
+  display: block;
+  padding-inline: var(--spacing);
+  padding-bottom: var(--spacing);
+  padding-top: 50%;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(to top, var(--Primary), rgba(0, 0, 0, 0));
+  transition: all ease-out 0.25s;
+  position: absolute;
+  z-index: 10;
+  color: var(--White);
+  bottom: -150%;
+}
+section > ul li p span {
+  font-size: larger;
+  margin-bottom: var(--spacing);
+}
+section a {
+  display: block;
+  height: 100%;
+}
+section img {
+  aspect-ratio: 9/5;
+  width: 100%;
+  height: 100%;
+  min-width: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex: 1;
+}
+
+.histoire {
+  background-image: url(images/ImageHistoire/Arthur.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding-block: 5em;
+}
+.histoire h2 {
+  color: var(--White);
+}
+
+@keyframes scroll {
+  0% {
+    margin-top: 0.5em;
+    opacity: 1;
+  }
+  25% {
+    margin-top: 0.5em;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 80%;
+  }
+}

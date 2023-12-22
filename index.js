@@ -12,15 +12,12 @@ document.addEventListener('scroll', (e) => {
     nav.classList.toggle("is-pinned", scrollY != 0);
 })
 
-function lerp (start, end, amt){
-    return (1-amt)*start+amt*end
-}
+document.addEventListener('DOMContentLoaded', (e) => {
+    parallaxElements.forEach(element => {
+        const parralaxPower = element.dataset.parallax;
+        let scrollY = window.scrollY*parralaxPower;
+        element.style.backgroundPosition = "center "+scrollY+"px";
+    });
 
-function move(){
-    circle.x = lerp(circle.x, mouseX, 0.1);
-    circle.y = lerp(circle.y, mouseY, 0.1);
-    circle.update() 
-}
-
-
-setInterval(move, 1000/60)
+    nav.classList.toggle("is-pinned", scrollY != 0);
+})

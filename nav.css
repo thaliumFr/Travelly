@@ -1,0 +1,65 @@
+nav {
+  position: fixed;
+  width: 100%;
+  top: -1px;
+  z-index: 999;
+  isolation: isolate;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, var(--Primary), rgba(0, 0, 0, 0));
+  transition: all 0.25s ease-in-out;
+}
+nav.is-pinned {
+  background: linear-gradient(to bottom, var(--Primary), var(--Primary));
+}
+nav.is-pinned ul {
+  margin-block: calc(var(--spacing) * 1.5);
+}
+nav.is-pinned a {
+  font-size: 1rem;
+}
+nav nav:nth-child(1) {
+  margin-left: var(--spacing);
+}
+nav .cta {
+  margin-right: calc(var(--spacing) * 2);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: max(var(--spacing), 1vw);
+  margin-block: calc(var(--spacing) * 4);
+  transition: all 0.25s ease-in-out;
+  padding: 0;
+}
+nav li {
+  display: block;
+}
+nav a {
+  --border-size: 3px;
+  display: block;
+  text-decoration: none;
+  color: var(--White);
+  align-self: center;
+  font-size: 1.25rem;
+  padding: var(--spacing);
+  overflow: hidden;
+  border-radius: var(--radius);
+  width: -moz-fit-content;
+  width: fit-content;
+  word-break: keep-all;
+  transition: all 0.25s;
+}
+nav a:hover:not(.title) {
+  background: linear-gradient(50deg, var(--Primary), var(--Primary-dark));
+  border: none;
+}
+nav a.title {
+  font-size: 1.5rem;
+  padding: 0 calc(var(--spacing) * 2);
+}
+nav a.title:hover {
+  transform: scale(1.1);
+}
