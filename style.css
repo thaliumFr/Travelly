@@ -10,6 +10,22 @@
   --radius: 10px;
 }
 
+input, button {
+  padding: var(--spacing);
+  margin: var(--spacing) 0;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 12pt;
+}
+input[type=button], button[type=button] {
+  background-color: var(--Accent);
+  color: var(--White);
+}
+input[type=submit], button[type=submit] {
+  background-color: var(--Primary);
+  color: var(--White);
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -17,6 +33,7 @@ body {
   font-size: 14pt;
   color: var(--text);
   overflow-anchor: none;
+  background-color: var(--Secondary);
 }
 
 * {
@@ -67,20 +84,6 @@ header div .searchbar {
   justify-content: center;
   align-items: center;
   gap: var(--spacing);
-}
-header div .searchbar input, header div .searchbar button {
-  padding: var(--spacing);
-  border-radius: var(--radius);
-  border: none;
-  font-size: 12pt;
-}
-header div .searchbar input[type=button], header div .searchbar button[type=button] {
-  background-color: var(--Accent);
-  color: var(--White);
-}
-header div .searchbar input[type=submit], header div .searchbar button[type=submit] {
-  background-color: var(--Primary);
-  color: var(--White);
 }
 header div .search {
   margin: 15px 0;
@@ -156,7 +159,7 @@ section > ul {
   flex-direction: row;
   gap: calc(var(--spacing) * 3);
   list-style: none;
-  padding: var(--spacing);
+  padding: var(--spacing) calc(var(--spacing) * 2);
   scroll-behavior: smooth;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -170,6 +173,7 @@ section > ul li {
   aspect-ratio: 9/5;
   overflow: hidden;
   min-width: 350px;
+  width: 25vw;
   position: relative;
   overflow: hidden;
   scroll-snap-stop: always;
@@ -215,6 +219,19 @@ section img {
   flex: 1;
 }
 
+.button {
+  background-color: var(--Accent);
+  padding: var(--spacing);
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--White);
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+.button:hover {
+  filter: brightness(90%);
+}
+
 .histoire {
   background-image: url(images/ImageHistoire/Arthur.jpg);
   background-repeat: no-repeat;
@@ -223,6 +240,13 @@ section img {
 }
 .histoire h2 {
   color: var(--White);
+}
+
+footer {
+  padding: var(--spacing);
+  background-color: var(--text);
+  color: var(--White);
+  margin-top: calc(var(--spacing) * 4);
 }
 
 @keyframes scroll {

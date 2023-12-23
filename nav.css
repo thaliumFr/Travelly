@@ -19,6 +19,10 @@ nav.is-pinned ul {
 nav.is-pinned a {
   font-size: 1rem;
 }
+nav .mid {
+  font-weight: 700;
+  border-bottom: solid 3px var(--White);
+}
 nav nav:nth-child(1) {
   margin-left: var(--spacing);
 }

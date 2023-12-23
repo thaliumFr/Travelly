@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Travelly - Mystère</title>
     <link rel="stylesheet" href="/nav.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/mystere/mystere.css">
@@ -15,7 +15,7 @@
         <ul class="tabs">
             <li><a href="">Vols</a></li>
             <li><a href="">Trains</a></li>
-            <li><a href="/mystere/">Voyages mystères</a></li>
+            <li><a href="/mystere/" class="mid">Voyages mystères</a></li>
             <li><a href="">Services</a></li>
             <li><a href="./#JC">Contact</a></li>
         </ul>
@@ -34,7 +34,6 @@
         </div>
         
     </header>
-
     <section class="Saga">
         <h2>Films & Sagas</h2>
         <ul>
@@ -93,5 +92,44 @@
             </li>
         </ul>
     </section>
+    <section class="Autres">
+        <h2>Le monde</h2>
+        <ul>
+            <li class="imgFilm">
+                <a href="#">
+                    <img src="/images/ImageAutre/noel.jpeg">
+                    <p><span>La Laponie</span><br>Profitez de Noël comme jamais auparavent</p>
+                </a>
+            </li>
+            <li class="imgFilm">
+                <img src="/images/ImageAutre/Paris.jpg"> 
+                <p>
+                    <span>Paris</span> <br>
+                    La ville romantique dans toute sa splandeur
+                </p>
+            </li>
+            <li class="imgFilm">
+                <a href="#">
+                    <img src="/images/ImageAutre/Londres.jpg">
+                    <p><span>Londres</span><br>Partez à la rencontre de la ville en découvrant des artistes comme Banksi</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2>Proposer un voyage</h2>
+        <form action="" method="post">
+            <label for="idea">Votre messsage :</label><input type="text" name="idea" id="idea"><br>
+            <label for="mail">E-mail : </label><input type="email" name="mail" id="mail"><br>
+            <input type="submit" value="proposer">
+        </form>
+    </section>
+    <footer>
+        <p class="title">Travelly</p>
+        <p>Not copyrighted by Travelly</p>
+        <p>Fait par Sébastien Benoit et Quintana Théo</p>
+    </footer>
+
+    <script src="/index.js" defer></script>
 </body>
 </html>
